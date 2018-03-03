@@ -180,7 +180,11 @@ Please keep the following in mind:
 
 Thanks for your help in making MagicMirror² better!
 
+See you soon on another project.
+
+Théophile.
+
 <p align="center">
 <br>
-	<a href="https://forum.magicmirror.builders/topic/728/magicmirror-is-voted-number-1-in-the-magpi-top-50"><img src="https://magicmirror.builders/img/magpi-best-watermark-custom.png" width="150" alt="MagPi Top 50"></a>
+	
 </p>
