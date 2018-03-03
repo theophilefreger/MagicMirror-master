@@ -1,0 +1,197 @@
+/* Magic Mirror Config 
+ *
+ * By Theophile Freger tfreger@me.com
+ * MIT Licensed.
+ *
+ */
+
+var config = {
+	address: "localhost", // Address to listen on, can be:
+	                      // - "localhost", "127.0.0.1", "::1" to listen on loopback interface
+	                      // - another specific IPv4/6 to listen on a specific interface
+	                      // - "", "0.0.0.0", "::" to listen on any interface
+	                      // Default, when address config is left out, is "localhost"
+	port: 8080,
+	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], // Set [] to allow all IP addresses
+	                                                       // or add a specific IPv4 of 192.168.1.5 :
+	                                                       // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+	                                                       // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+	                                                       // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+
+	language: "fr",
+	timeFormat: 24,
+	units: "metric",
+
+	modules: [
+		{
+			module: "alert",
+		},
+		{
+			module: "updatenotification",
+			position: "top_bar"
+		},
+		{
+			module: "clock",
+			position: "top_left"
+		},
+		{
+			module: "calendar",
+			header: "Vacances",
+			position: "top_left",
+			config: {
+				calendars: [
+					{
+						symbol: "calendar-check-o ",
+						url: "webcal://www.calendarlabs.com/templates/ical/US-Holidays.ics"
+					}
+				]
+			}
+		},
+		{
+  module: "compliments",
+  position: "lower_third",
+     config: {
+       compliments: {
+           
+            anytime: [
+				"Coucou toi! WoW très beau!",
+            "C'est ce que l'on appelle de la classe...",
+            "Arrête de me regarder tu vas me faire rougir...",
+            "Je ne sais pas quoi penser de toi :-( ",
+            "Mais regarde toi tu es magnifique!",
+            "Oups un petit bouton en haut à gauche",
+            "Regarde les infos t'es le plus beau du monde",
+            "Bon on fait quoi? Je m'ennuie",
+            "Quand est-ce que tu compte me demander en mariage!",
+            "WoW, préviens moi la prochaine fois!",
+            "9,75/10",
+            "Finalement la perfection existe!!",
+            "Je ne sais pas quoi dire",
+            "Comment fais-tu ? Ton teint est toujours éclatant.",
+            "Si tu étais un délit, tu serais un excès de beauté…",
+            "Ahh, ton sourire me renverse…",
+            "Ton sourire pourrait éclairer le fond de l’océan.",
+            "Tu ressembles à un dieu grec",
+            "Ouah, tu ne mentais pas quand tu disais aller à la salle...",
+            "Je pourrais te contempler éternellement. (Chiche !)",
+            "Un rien te va.",
+            "Tu as un don pour choisir les vêtements à porter.",
+            "Tu as une beauté préraphaélite.",
+            "Rodin n’aurait pas fait mieux que Toi",
+            "Mon caméra n’est pas à la hauteur de ta beauté",
+            "J’ai mis une seconde pour t’aimer, mais je mettrais une éternité à t’oublier.",
+            "Tu pourrais inventer des mots, les gens les utiliseraient.",
+            "Tu es le champagne qui fait pétiller ma vie.",
+            "Tu es le fruit de la passion dans ma salade d’agrumes",
+            "J’ai des papillons dans le ventre dès que je te vois.",
+            "Tu es belle à en réveiller les morts.",
+            "T’as d’beaux yeux, tu sais",
+            "On a beau tout rêver, tu dépasses le rêve. ",
+            "La courbe de tes yeux fait le tour de mon cœur.",
+            "Quand je lève les yeux vers toi on dirait que le monde tremble.",
+            "Tu me tues. Tu me fais du bien.",
+            "Tes yeux sont si profonds que j’y perds la mémoire.",
+            "Je ne te connais pas, laisse moi t'ajouter dans ma base de données",
+            "WOWOOWOW tu sors pas d'ici tant que j'ai pas ton numéro ou ton snap",
+            "Souriez vous êtes filmés",
+            "Gros, t'es un ptit génie",
+            "Toi je te met un like"
+			],
+			morning: [
+				"Bonjour, ptit père!",
+				"Prêt pour la journée?",
+				"Bien dormi?",
+                "Un petit café?",
+                "J'aime bien ton outfit",
+                "Tu as prévu quoi aujourd'hui",
+                "Avec toi, on ne s'ennuie jamais.",
+                "J'espère qu'il n'y a pas de contrôle aujourd'hui"
+                
+			],
+			afternoon: [
+				"Quelle belle après-midi avec toi!",
+				"Bon tu travailles un peu?",
+				"Oh coquin il me regarde...",
+                "Il fait chaud ici dis donc",
+                "Tu devrais aller à la salle toi",
+                "Arrête de manger tu vas grossir"
+			],
+			evening: [
+				"Wow, you look hot!",
+				"You look nice!",
+				"Que fais tu ce soir?",
+                "Petite résoi?",
+                "Tes invitéEs sont pas mal dis donc",
+                "Mon snaps ? Magicmirrordetf",
+                "Tourne toi que je puisse voir ton beau corps",
+                "Coucou toi, je t'ajoute dans ma base de données",
+                "Théophile est un bon créateur, mais qu'est ce qu'il est chiant...",
+                "Je vous commande un ptit zdou?",
+                "T'as faim ? ptit deliveroo ?",
+                "Ptn j'ai besoin de Tacos...",
+                "Attend je commande la Poliakov sur Amazon",
+                "C'est qui ton pote là bas ?",
+                "Des fois je suis un mec, des fois une meuf",
+                "Ouloulou"
+                
+			],
+		    day_sunny: [
+			"Putain il va faire beau aujourd'hui!",
+			"Enfin du soleil, profite!"
+            "Il fait beau, profite en pour aérer ça pue ici"
+            "Profite bien ça va pas durer"
+		    ],
+		    snow: [
+			"Bataille de boule de neige"
+		    ],
+		    rain: [
+			"Hum il ne s'arrête jamais de pleuvoir",
+            "Couvre toi bien il pleut",
+            "Demande à ton google truc la météo tu vas voir",
+            "J'espère que tu ne comptes pas sortir..."
+		    ],
+           night_cloudy: [
+            "Let's Party! Oui j'parle Anglais"   
+           ]
+	}
+}
+		},
+		{
+			module: "currentweather",
+			position: "top_right",
+			config: {
+				location: "New York",
+				locationID: "",  //ID from http://www.openweathermap.org/help/city_list.txt
+				appid: "YOUR_OPENWEATHER_API_KEY"
+			}
+		},
+		{
+			module: "weatherforecast",
+			position: "top_right",
+			header: "Weather Forecast",
+			config: {
+				location: "New York",
+				locationID: "5128581",  //ID from http://www.openweathermap.org/help/city_list.txt
+				appid: "YOUR_OPENWEATHER_API_KEY"
+			}
+		},
+		{
+			module: "newsfeed",
+			position: "bottom_bar",
+			config: {
+				feeds: [
+					{
+						title: "New York Times",
+						url: "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+					}
+				],
+				showSourceTitle: true,
+				showPublishDate: true
+			}
+		},
+	]
+
+};
+
+/*************** DO NOT EDIT THE LINE BELOW ***************/
+if (typeof module !== "undefined") {module.exports = config;}
